@@ -1,3 +1,13 @@
+// Yamato Eguchi
+// CPSC 120-01
+// 2021-04-09
+// yamatoe1227@csu.fullerton.edu
+// @yamatoeguchi
+//
+// Lab 08-01
+// 
+// This is my read from file assignment
+// 
 
 #include <fstream>
 #include <iostream>
@@ -15,7 +25,9 @@ using namespace std;
 /// \param message The programmer defined string that specifies the current
 /// error.
 void ErrorMessage(const string& message) {
-  // TODO: Write the body of this function
+  // Write the body of this function
+  cout << message << "\n";
+  cout << "There was an error. Exiting.\n";
 }
 
 /// Entry point to the read_from_file program
@@ -69,21 +81,23 @@ int main(int argc, char* argv[]) {
   // the data because this is an old-fashioned way of reading from
   // a file and it is backwards compatible with C.
 
-  // TODO: Write a loop to read and print out the contents of the input
+  // Write a loop to read and print out the contents of the input
   // file.
-  // To read from a file, we will read it one line at a time. We shall
-  // hold the line that we're reading in string variable. Note that unlike
-  // a string stream, a string is non-mutable. Every time we pass through
-  // the while loop below, a new string is created (not changed).
-  // https://en.cppreference.com/w/cpp/string/basic_string
-  string line_buffer;
-  // Let's make sure that the string is as long as our maximum line length.
+  while (input_file_stream) {
+    // To read from a file, we will read it one line at a time. We shall
+    // hold the line that we're reading in string variable. Note that unlike
+    // a string stream, a string is non-mutable. Every time we pass through
+    // the while loop below, a new string is created (not changed).
+    // https://en.cppreference.com/w/cpp/string/basic_string
+    string line_buffer;
+    // Let's make sure that the string is as long as our maximum line length.
   // https://en.cppreference.com/w/cpp/string/basic_string/resize
-  line_buffer.resize(kMaxLineLength);
-  // Read the line from the input_file_stream and store the read line
+    line_buffer.resize(kMaxLineLength);
+    // Read the line from the input_file_stream and store the read line
   // into the variable line_buffer.
-  input_file_stream.getline(&line_buffer[0], kMaxLineLength, '\n');
-  
+    input_file_stream.getline(&line_buffer[0], kMaxLineLength, '\n');
+    cout << line_buffer << "\n";
+  }
 
   // We're done reading the file because we got to the end of the file or
   // there was an error condition. Let's check to see what happened.
