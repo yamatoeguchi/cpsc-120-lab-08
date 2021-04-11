@@ -1,3 +1,13 @@
+// Yamato Eguchi
+// CPSC 120-01
+// 2021-04-09
+// yamatoe1227@gmail.com
+// @yamatoeguchi
+//
+// Lab 08-02
+//
+// This is my write to file assignment
+// 
 
 #include <fstream>
 #include <iostream>
@@ -16,6 +26,8 @@ using namespace std;
 /// error.
 void ErrorMessage(const string& message) {
   // TODO: Write the body of this function
+  cout << message << "\n";
+  cout << "There was an error. Exiting.\n";
 }
 
 /// Entry point to the read_from_file program
@@ -64,8 +76,10 @@ int main(int argc, char* argv[]) {
 
   // TODO: Read the secret message from the keyboard and save it to
   // secret_message
+  getline(cin, secret_message);
 
   // TODO: Write the secret message to the output file.
+  output_file_stream << secret_message << "\n";
 
   if (output_file_stream.bad()) {
     ErrorMessage("I/O error while reading");
