@@ -1,3 +1,13 @@
+// Yamato Eguchi
+// CPSC 120-01
+// 2021-04-09
+// yamatoe1227@csu.fullerton.edu
+// @yamatoeguchi
+//
+// Lab 08-03
+//
+// This is my play animation assignment
+//
 
 #include <chrono>
 #include <fstream>
@@ -17,7 +27,9 @@ using namespace std;
 /// \param message The programmer defined string that specifies the current
 /// error.
 void ErrorMessage(const string& message) {
-  // TODO: Write the body of this function
+  // Write the body of this function
+  cout << message << "\n";
+  cout << "There was an error. Exiting.\n";
 }
 
 /// Entry point to the read_from_file program
@@ -65,8 +77,12 @@ int main(int argc, char* argv[]) {
   // cause the program to stop for 10,000 microseconds after every
   // iteration of the loop.
   char letter;
+  while (input_file_stream.get(letter)) {
+      cout << letter;
+      this_thread::sleep_for(10000us);
+  }
 
-  // TODO: Write a loop to read one letter from the input file and then
+  // Write a loop to read one letter from the input file and then
   // immediately print it out. Then sleep for a short period of time to
   // slow down your computer.
 
@@ -74,7 +90,7 @@ int main(int argc, char* argv[]) {
   // Sleep for 10,000 microseconds - adjust this if your computer is
   // too fast or too slow. The bigger the number the slower the program
   // will run. The smaller the number, the faster the program will run.
-  this_thread::sleep_for((10000us));
+  // this_thread::sleep_for((10000us));
 
   // We're done reading the file because we got to the end of the file or
   // there was an error condition. Let's check to see what happened.
